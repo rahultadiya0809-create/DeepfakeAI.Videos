@@ -1,0 +1,50 @@
+# DeepfakeAI - Ignore Rules
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# PyTorch model weights (too large for GitHub)
+*.pth
+*.pt
+*.bin
+*.onnx
+
+# HuggingFace cache
+.cache/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Datasets (too large for GitHub)
+datasets/
+dataset/
+
+# Temp files
+*.tmp
+*.log
+temp/
+tmp/
+
+# Uploaded videos
+uploads/
