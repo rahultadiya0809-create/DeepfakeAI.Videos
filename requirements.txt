@@ -18,3 +18,4 @@ regex>=2024.4.28
 einops>=0.7.0
 sentencepiece
 protobuf
+

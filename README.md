@@ -1,5 +1,7 @@
 # 🔍 DeepScan AI — Deepfake Detection
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/rahultadiya0809-create/DeepfakeAI.Videos)
+
 A 4-model ensemble deepfake detection system using **EfficientNet-B4**, **LipForensics**, **SigLIP v1**, and **SigLIP 2** to detect AI-generated or manipulated video content.
 
 > 🎓 **College Project** — AI/ML Deepfake Detection
