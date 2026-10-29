@@ -549,7 +549,10 @@ footer span{color:var(--accent)}
 // ============================================================
 // CONFIG & STATE
 // ============================================================
-const API = 'http://localhost:8000';
+const API = localStorage.getItem('DEEPSCAN_API') || 
+  ((window.location.protocol.startsWith('http') && window.location.port !== '3000' && window.location.port !== '5500')
+    ? (window.location.port === '8000' ? '' : window.location.origin)
+    : 'http://localhost:8000');
 let serverOnline = false;
 let selectedFile = null;
 let capFrames    = [];

@@ -4,9 +4,17 @@ import sys
 import shutil
 import tempfile
 
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 sys.path.insert(0, os.path.dirname(__file__))
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 
@@ -32,6 +40,22 @@ print("=" * 55)
 
 
 # ── Routes ────────────────────────────────────────────────────
+@app.get("/")
+def serve_root():
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    html_path = os.path.join(base_dir, "forntend.html")
+    if os.path.exists(html_path):
+        return FileResponse(html_path)
+    local_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "forntend.html")
+    if os.path.exists(local_path):
+        return FileResponse(local_path)
+    return {"status": "ok", "message": "DeepScan AI API running"}
+
+
+@app.get("/forntend.html")
+def serve_frontend_alias():
+    return serve_root()
+
 @app.get("/health")
 def health():
     return {
